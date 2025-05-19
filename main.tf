@@ -2,6 +2,7 @@
 resource "aws_instance" "myfirstinstance" {
   ami           = var.ami # Amazon Linux 2 AMI
   instance_type = "t2.nano"
+  
 tags = {
     Name = "MyFirstInstance"
 }
@@ -16,6 +17,15 @@ resource "aws_s3_bucket" "mytetsbucket" {
 
   tags = {
     Name = "MyTestBucket"
+  }
+
+}
+resource "aws_s3_bucket" "mybucketbackend" {
+  bucket = "my-test-backends301-tfstate" # Replace with a unique bucket name
+  region = "eu-west-1"
+
+  tags = {
+    Name = "MyTestBucketbackend"
   }
 
 }

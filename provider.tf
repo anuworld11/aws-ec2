@@ -9,8 +9,16 @@ terraform {
       version = "3.7.2"
     }
   }
+  backend "s3" {    
+    bucket         = "my-test-backends301-tfstate"
+    key            = "terraform.tfstate"
+    region         = "eu-west-1"
+    
+    }
 }
 
 provider "aws" {
   region = var.region
 }
+
+
