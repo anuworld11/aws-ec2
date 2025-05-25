@@ -9,8 +9,9 @@ tags = {
 }
 }*/
 module "ec2_instance" {
-  source  = "./module"
-  }
+  source         = "git::https://github.com/anuworld11/aws-ec2.git//module?ref=main"
+
+}
   
 
 resource "random_id" "rand" {
