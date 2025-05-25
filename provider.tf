@@ -13,6 +13,7 @@ terraform {
     bucket         = "my-test-backends301-tfstate"
     key            = "terraform.tfstate"
     region         = "eu-west-1"
+    dynamodb_table = "my-dynamodb-table_state"
     
     }
 }
