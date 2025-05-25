@@ -1,5 +1,5 @@
 resource "aws_instance" "myfirstinstance" {
-  count = 2
+  count = 1
   ami           = var.ami # Amazon Linux 2 AMI
   instance_type = "t2.nano"
   
