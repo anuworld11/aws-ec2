@@ -4,10 +4,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "6.0.0-beta1"
     }
-    random = {
+    /*random = {
       source  = "hashicorp/random"
-      version = "3.7.2"
-    }
+      version = "3.7.2"ß
+    }*/
   }
   backend "s3" {    
     bucket         = "my-test-backends301-tfstate"
@@ -19,7 +19,8 @@ terraform {
 }
 
 provider "aws" {
-  region = var.region
+  region = "eu-west-1"
 }
+
 
 

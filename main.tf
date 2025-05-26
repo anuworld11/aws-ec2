@@ -9,12 +9,23 @@ tags = {
 }
 }*/
 module "ec2_instance" {
-  source         = "git::https://github.com/anuworld11/aws-ec2.git//module?ref=main"
+  source = "./module"
 
+  for_each = { for inst in var.ec2_instances : inst.name => inst }
+
+  name          = each.value.name
+  ami           = each.value.ami
+  instance_type = each.value.instance_type
+  volume_size   = each.value.volume_size
 }
+
+
+
+
+
   
 
-resource "random_id" "rand" {
+/*resource "random_id" "rand" {
   byte_length = 8
 }
 
@@ -26,7 +37,7 @@ resource "aws_s3_bucket" "mytetsbucket" {
     Name = "MyTestBucket"
   }
 
-}
+}*/
 resource "aws_s3_bucket" "mybucketbackend" {
   bucket = "my-test-backends301-tfstate" # Replace with a unique bucket name
   region = "eu-west-1"
